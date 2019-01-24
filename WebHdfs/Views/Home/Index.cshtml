@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<body class="layui-layout-body">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">选择文件</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="file-loading">
+                        <input id="input-b9" name="input-b9[]" multiple type="file" >
+                    </div>
+                    <div id="kartik-file-errors"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">关闭</button>
+                    <button type="button" class="btn btn-primary" title="Your custom upload logic" id="upload">上传</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">HDFS</div>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        贤心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">登录名管理</a></dd>
+                        <dd><a href="">切换用户</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退出</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed"><a class="" href="">My HDFS</a></li>
+                    <li class="layui-nav-item"><a href="http://node:8088/cluster">MyHadoop</a></li>
+                    <li class="layui-nav-item"><a href="">JobHistory Server</a></li>
+                    <li class="layui-nav-item"><a href="">Application Queues</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <hr class="layui-bg-blue">
+            <div class="layui-btn-group">
+                <button class="layui-btn" id="mkdir">
+                    <i class="layui-icon">&#xe608;</i> 新建文件夹
+                </button>
+                <button class="layui-btn layui-btn-disabled" id="deldir">
+                    <i class="layui-icon">&#xe640;</i> 删除
+                </button>
+               
+                <button type="button" class="layui-btn " data-toggle="modal" data-target="#exampleModal">
+                    <i class="layui-icon">&#xe67c;</i>上传文件
+                </button>
+               
+                
+            </div>
+            <hr class="layui-bg-blue">
+            <span class="layui-breadcrumb">
+                <a id="firstpage">首页<span lay-separator="">/</span></a>
+            </span>
+            <span class="layui-breadcrumb" id="navigation">
+            </span>
+            <hr class="layui-bg-blue">
+            <!-- 内容主体区域 -->
+            @*<div style="padding: 15px;" >
+                <div class="layui-collapse" id="maindiv">
+
+                </div>
+            </div>*@
+
+            <table class="layui-table">
+                <colgroup>
+                    <col width="400">
+                    <col width="400">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文件名</th>
+                        <th>文件类型</th>
+                        <th>最近修改时间</th>
+                    </tr>
+                </thead>
+                <tbody id="maindiv">
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © 钱大帅出品
+        </div>
+    </div>
+</body>
+
+
+
